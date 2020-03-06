@@ -2,7 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
-export default function Component(props) {
+export default function Component({children}) {
 
-    return <span></span>;
+    return(
+    	<div>
+    		{children}
+    	</div>
+    	);
 }
