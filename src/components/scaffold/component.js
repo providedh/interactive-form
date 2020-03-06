@@ -5,8 +5,10 @@ import styles from './style.module.css';
 export default function Component({children}) {
 
     return(
-    	<div>
-    		{children}
+    	<div className={"container-fluid "+styles.scaffold}>
+    		<div className="container-lg">
+    			{children}
+    		</div>
     	</div>
     	);
 }
