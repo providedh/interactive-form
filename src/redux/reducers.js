@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import {ADVANCE_PAGE, BACK_PAGE, ALLOW_NAVIGATION, DISALLOW_NAVIGATION} from './actions';
 
 const initialNavigationState = {
-	current: 0,
+	current: 1,
 	allowNavigation: true,
 	info: ''
 }
