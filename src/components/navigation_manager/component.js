@@ -19,6 +19,7 @@ export default function Component({
 		boundBackPage,
 		boundAllowNavigation,
 		boundDisallowNavigation,
+		icons,
 		children,
 	}) {
 
@@ -33,6 +34,6 @@ export default function Component({
 	    		{pages}
 	    	</div>
     	</div>
-    	<PageSelector {...{current, allowNavigation, info, boundAdvancePage, boundBackPage, length: children.length}}/>
+    	<PageSelector {...{current, allowNavigation, info, boundAdvancePage, boundBackPage, icons}}/>
     </div>;
 }
