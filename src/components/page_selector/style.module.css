@@ -1,0 +1,7 @@
+.body{
+	flex-grow: 1;
+}
+
+.current{
+	font-weight: bold;
+}

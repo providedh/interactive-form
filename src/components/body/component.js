@@ -2,14 +2,19 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
-import {Title, PageManager} from '..';
+import {Title} from 'app_components';
+import {Navigation} from 'app_containers';
 
 export default function Component(props) {
 
     return(
     	<div className={"container-lg "+styles.body}>
     		<Title />
-    		<PageManager />
+    		<Navigation>
+    			<span> first page </span>
+    			<span> second page </span>
+    			<span> third page </span>
+    		</Navigation>
     	</div>
     	);
 }

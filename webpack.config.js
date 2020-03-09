@@ -2,7 +2,6 @@ const path = require('path');
 
 const outputDirectory = '../static/vis_dashboard/js'
 
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -14,6 +13,8 @@ module.exports = {
     grid_style_resizable: __dirname + "/node_modules/react-resizable/css/styles.css",
     app_reducers: __dirname + '/src/redux/reducers.js',
     app_actions: __dirname + '/src/redux/actions.js',
+    app_components: __dirname + '/src/components',
+    app_containers: __dirname + '/src/containers',
     }
   },
   module: {
