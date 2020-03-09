@@ -12,6 +12,8 @@ module.exports = {
     alias: {
     grid_style_layout: __dirname + "/node_modules/react-grid-layout/css/styles.css",
     grid_style_resizable: __dirname + "/node_modules/react-resizable/css/styles.css",
+    app_reducers: __dirname + '/src/redux/reducers.js',
+    app_actions: __dirname + '/src/redux/actions.js',
     }
   },
   module: {
