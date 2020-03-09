@@ -15,21 +15,21 @@ export default function Component(props) {
 					    </div>
 				  	</div>
 				  	<div className="form-group row">
-					    <label htmlFor="inputEmail3" className="col-6 col-lg-2 col-form-label">Sex</label>
+					    <label htmlFor="inputEmail31" className="col-6 col-lg-2 col-form-label">Sex</label>
 					    <div className="col-6 col-lg-10">
-					      <input type="email" className="form-control" id="inputEmail3"/>
+					      <input type="email" className="form-control" id="inputEmail31"/>
 					    </div>
 				  	</div>
 				  	<div className="form-group row">
-					    <label htmlFor="inputEmail3" className="col-6 col-lg-2 col-form-label">Highest education</label>
+					    <label htmlFor="inputEmail32" className="col-6 col-lg-2 col-form-label">Highest education</label>
 					    <div className="col-6 col-lg-10">
-					      <input type="email" className="form-control" id="inputEmail3"/>
+					      <input type="email" className="form-control" id="inputEmail32"/>
 					    </div>
 				  	</div>
 				  	<div className="form-group row">
-					    <label htmlFor="inputEmail3" className="col-6 col-lg-2 col-form-label">Work/research field</label>
+					    <label htmlFor="inputEmail34" className="col-6 col-lg-2 col-form-label">Work/research field</label>
 					    <div className="col-6 col-lg-10">
-					      <input type="email" className="form-control" id="inputEmail3"/>
+					      <input type="email" className="form-control" id="inputEmail34"/>
 					    </div>
 				  	</div>
 				  	<fieldset className="form-group">
@@ -56,14 +56,14 @@ export default function Component(props) {
 					      <legend className="col-form-label col-6 col-lg-2 pt-0">Prior knowledge on Digital Humanities</legend>
 					      <div className="col-6 col-lg-10">
 					        <div className="form-check">
-					          <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" defaultChecked/>
-					          <label className="form-check-label" htmlFor="gridRadios1">
+					          <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios12" value="option1" defaultChecked/>
+					          <label className="form-check-label" htmlFor="gridRadios21">
 					            Yes
 					          </label>
 					        </div>
 					        <div className="form-check">
-					          <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"/>
-					          <label className="form-check-label" htmlFor="gridRadios2">
+					          <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios22" value="option2"/>
+					          <label className="form-check-label" htmlFor="gridRadios22">
 					            No
 					          </label>
 					        </div>
