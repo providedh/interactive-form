@@ -17,7 +17,7 @@ export default function Component(props) {
     			<UserPage />
     			<span> third page </span>
     			<span> fourth page </span>
-    			<span> fifth page </span>
+    			<SendPage />
     		</Navigation>
     	</div>
     	);

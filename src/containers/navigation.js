@@ -1,7 +1,6 @@
 import {connect} from 'react-redux';
 
 import NavigationManager from '../components/navigation_manager';
-console.log(NavigationManager)
 
 import {advancePage, backPage, allowNavigation, disallowNavigation} from 'app_actions';
 

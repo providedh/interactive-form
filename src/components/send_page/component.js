@@ -2,12 +2,18 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
+import {CurrentState} from 'app_containers';
+
 export default function Component(props) {
 
     return(
-	    <div className="my-3">
-	        <h1 className="d-inline">Categorizing Uncertainty</h1>
-	        <p className="d-inline ml-3"><span>A survey on uncertainty use and categorization.</span></p>
+	    <div className="my-3 container">
+	    	<h3 className="mt-3">Before you submit the survey</h3>
+	    	<p>Survey answers can't be changed once they are sent.</p>
+	    	<CurrentState />
+	    	<form className="d-flex justify-content-center">
+	    		<button type="submit" class="btn btn-primary">Submit your responses</button>
+			</form>
     	</div>
     	);
 }
