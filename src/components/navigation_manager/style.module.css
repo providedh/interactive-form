@@ -23,8 +23,4 @@
     height: calc(100vh - 230px);
 	flex-shrink: 0;
 	margin-right: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 100px;
 }
