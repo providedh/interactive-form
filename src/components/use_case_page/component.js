@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
 import Sources from 'app_sources';
-import {Taxonomy} from 'app_containers';
-import {TextSource} from 'app_components';
+import {Taxonomy, TextSource} from 'app_containers';
 
 export default function Component({useCaseType, useCaseSource}) {
 	

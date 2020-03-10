@@ -30,8 +30,11 @@ function taxonomyReducer(state=initialTaxonomyState, action){
 		hasIndex = action.payload != undefined && action.payload.hasOwnProperty('index');
 	switch(action.type){
 		case actions.ADD_CATEGORY:
-			if(hasName === true)
-				newState = {categories:[...state.categories, action.payload.name], newCategory: ''};
+			if(hasName === true){
+				newState = {categories:[...state.categories, action.payload.name], 
+						newCategory: '', 
+						draggedCategory: state.draggedCategory};
+			}
 			break;
 		case actions.REMOVE_CATEGORY:
 			if(hasIndex === true){
@@ -47,6 +50,9 @@ function taxonomyReducer(state=initialTaxonomyState, action){
 			if(hasName === true){
 				newState.newCategory = action.payload.name;
 			}
+			break;
+		case actions.SET_DRAGGED_CATEGORY:
+			newState.draggedCategory = action.payload.name;
 			break;
 	}
 	return newState;

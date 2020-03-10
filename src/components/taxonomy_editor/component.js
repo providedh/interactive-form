@@ -9,12 +9,13 @@ export default function Component({
 			boundRemoveCategory, 
 			boundUpdateCategory, 
 			boundUpdateNewCategory, 
+			boundSetDraggedCategory,
 			freezed}) {
 	const isFreezed = freezed==undefined?false:freezed,
 		isEditable = freezed==undefined?true:!freezed;
 
 	const category = (name, index)=>(
-		<li key={index} draggable={isEditable}>
+		<li key={index} draggable={isEditable} onDragStart={()=>boundSetDraggedCategory({name})}>
 			<span></span>
 			<input className="form-control" type="text" disabled={isFreezed} value={name} onChange={e=>boundUpdateCategory({index, name:e.target.value})}/>
 			{isFreezed===true?'':(

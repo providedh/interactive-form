@@ -2,15 +2,15 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
-export default function Component({source, categories}) {
+export default function Component({source, categories, draggedCategory}) {
 
 	function onDragOver(e){
 		e.stopPropagation();
 		e.preventDefault();
 	}
 
-	function onDrop(e){
-		console.log(e.target);
+	function onDrop(index){
+		console.log(index, draggedCategory);
 	}
 
 	function textFragment([prev, uncertain, post], index){
@@ -21,7 +21,7 @@ export default function Component({source, categories}) {
 				<span className={styles.uncertain} 
 					data-category={category}
 					onDragOver={onDragOver}
-					onDrop={onDrop}>{uncertain}</span>
+					onDrop={()=>onDrop(index)}>{uncertain}</span>
 				<span>{post}</span>
 			</span>
 		);

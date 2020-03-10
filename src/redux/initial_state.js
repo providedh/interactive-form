@@ -15,6 +15,7 @@ export const initialUserState = {
 
 export const initialTaxonomyState = {
 	newCategory: '',
+	draggedCategory: '',
 	categories: ['Imprecision', 'Ignorance', 'Credibility', 'Incompleteness']
 };
 
