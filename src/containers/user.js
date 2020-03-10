@@ -43,56 +43,50 @@ function User({user, boundUpdateUser}) {
 			      <input type="text" value={user.field} onChange={e=>setValue('field', e.target.value)} className="form-control" id="field"/>
 			    </div>
 		  	</div>
-		  	<fieldset className="form-group">
 			    <div className="row">
-			      <legend className="col-form-label col-6 col-lg-2 pt-0">Previously (or currently) working at research</legend>
-			      <div className="col-6 col-lg-10">
-			        <div className="form-check">
-			          <input className="form-check-input" type="radio" 
-			          	checked={user.researcher == 'yes'}
-			          	onChange={e=>setValue('researcher', e.target.value)}
-			          	name="researcher" id="gridRadios1" value="yes"/>
-			          <label className="form-check-label" htmlFor="gridRadios1">
-			            Yes
-			          </label>
-			        </div>
-			        <div className="form-check">
-			          <input className="form-check-input" type="radio" 
-			          	checked={user.researcher == 'no'}
-			          	onChange={e=>setValue('researcher', e.target.value)}
-			          	name="researcher" id="gridRadios2" value="no"/>
-			          <label className="form-check-label" htmlFor="gridRadios2">
-			            No
-			          </label>
-			        </div>
-			      </div>
+			  		<fieldset className="ml-3 form-group">
+				      <legend className="col-form-label">Previously (or currently) working at research</legend>
+				        <div className="form-check">
+				          <input className="form-check-input" type="radio" 
+				          	checked={user.researcher == 'yes'}
+				          	onChange={e=>setValue('researcher', e.target.value)}
+				          	name="researcher" id="gridRadios1" value="yes"/>
+				          <label className="form-check-label" htmlFor="gridRadios1">
+				            Yes
+				          </label>
+				        </div>
+				        <div className="form-check">
+				          <input className="form-check-input" type="radio" 
+				          	checked={user.researcher == 'no'}
+				          	onChange={e=>setValue('researcher', e.target.value)}
+				          	name="researcher" id="gridRadios2" value="no"/>
+				          <label className="form-check-label" htmlFor="gridRadios2">
+				            No
+				          </label>
+				        </div>
+				  	</fieldset>
+				  	<fieldset className="ml-5 form-group">
+				      <legend className="col-form-label">Prior knowledge on Digital Humanities</legend>
+				        <div className="form-check">
+				          <input className="form-check-input" type="radio"
+				          	checked={user.previousDH == 'no'}
+				          	onChange={e=>setValue('previousDH', e.target.value)}
+				          	name="previousDH" id="gridRadios12" value="option1"/>
+				          <label className="form-check-label" htmlFor="gridRadios21">
+				            Yes
+				          </label>
+				        </div>
+				        <div className="form-check">
+				          <input className="form-check-input" type="radio" 
+				          	checked={user.previousDH == 'no'}
+				          	onChange={e=>setValue('previousDH', e.target.value)}
+				          	name="previousDH" id="gridRadios22" value="option2"/>
+				          <label className="form-check-label" htmlFor="gridRadios22">
+				            No
+				          </label>
+				        </div>
+			  		</fieldset>
 			    </div>
-		  	</fieldset>
-		  	<fieldset className="form-group">
-			    <div className="row">
-			      <legend className="col-form-label col-6 col-lg-2 pt-0">Prior knowledge on Digital Humanities</legend>
-			      <div className="col-6 col-lg-10">
-			        <div className="form-check">
-			          <input className="form-check-input" type="radio"
-			          	checked={user.previousDH == 'no'}
-			          	onChange={e=>setValue('previousDH', e.target.value)}
-			          	name="previousDH" id="gridRadios12" value="option1"/>
-			          <label className="form-check-label" htmlFor="gridRadios21">
-			            Yes
-			          </label>
-			        </div>
-			        <div className="form-check">
-			          <input className="form-check-input" type="radio" 
-			          	checked={user.previousDH == 'no'}
-			          	onChange={e=>setValue('previousDH', e.target.value)}
-			          	name="previousDH" id="gridRadios22" value="option2"/>
-			          <label className="form-check-label" htmlFor="gridRadios22">
-			            No
-			          </label>
-			        </div>
-			      </div>
-			    </div>
-		  	</fieldset>
 		</form>
     	);
 }
