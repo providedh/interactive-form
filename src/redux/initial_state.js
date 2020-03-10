@@ -6,11 +6,11 @@ export const initialNavigationState = {
 
 export const initialUserState = {
 	age: 40,
-	gender: 'unspecified',
-	minStudies: '',
+	gender: 'Unspecified',
+	education: '',
 	field: '',
-	previousDH: false,
-	researcher: false
+	previousDH: 'no',
+	researcher: 'no'
 };
 
 export const initialTaxonomyState = {
