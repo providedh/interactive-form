@@ -6,7 +6,7 @@ export default function Component(props) {
 
     return(
 	    <div className="my-3 container-fluid">
-	    	<div className="column">
+	    	<div className="column mx-4">
 	    		<div className={styles.header + " row"}>
 	    			<img src="/public/img/providedh-logo.svg"/>
 	    			<p>
@@ -17,17 +17,21 @@ export default function Component(props) {
 	    	<h3 className="mt-3 text-center">About this survey</h3>
 	    	<ul className="mx-5">
 	    		<li className="m-5">
-			        <h4 className="d-inline">It originates in the context of</h4>
-			        <p className="d-inline ml-2"><span>an study about historical-text related uncertainty and how it can be perceived and categorized.</span></p>
+			        <h4 className="d-inline">It is done in the context of</h4>
+			        <p className="d-inline ml-2"><span>an study about perception of uncertainty in Digital-Humanities
+			        related study objects, and how its understanding and visualization can aid in decision making
+			        tasks that involve such uncertain sources.</span></p>
 	    		</li>
 	    		<li className="m-5">
-			        <h4 className="d-inline">it aims at</h4>
-			        <p className="d-inline ml-2"><span>understanding how uncertainty (for the same piece of information) is defined by different users.</span></p>
+			        <h4 className="d-inline">It aims at</h4>
+			        <p className="d-inline ml-2"><span>gathering enough information regarding how heterogeneous groups of
+			        people can understand and name uncertainty differently; therefore seeking to understand what is/are the
+			        best taxonomies for it.</span></p>
 	    		</li>
 	    		<li className="m-5">
-			        <h4 className="d-inline">Will require</h4>
-			        <p className="d-inline ml-2"><span>Creating a taxonomy for uncertainty and using it to describe the type of uncertainty you
-			        	encounter in a set of use cases.</span></p>
+			        <h4 className="d-inline">Will require you to</h4>
+			        <p className="d-inline ml-2"><span>create a taxonomy for categorizing the uncertainty found in different 
+			        provided document sources, and later apply such taxonomy to the documents.</span></p>
 	    		</li>
 	    	</ul>
     	</div>
