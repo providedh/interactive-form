@@ -2,14 +2,26 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
-export default function Component({categories, newCategory, boundAddCategory, boundRemoveCategory, boundUpdateCategory, boundUpdateNewCategory}) {
+export default function Component({
+			categories, 
+			newCategory, 
+			boundAddCategory, 
+			boundRemoveCategory, 
+			boundUpdateCategory, 
+			boundUpdateNewCategory, 
+			freezed}) {
+	const isFreezed = freezed==undefined?false:freezed,
+		isEditable = freezed==undefined?true:!freezed;
+
 	const category = (name, index)=>(
-		<li key={index} draggable="true">
+		<li key={index} draggable={isEditable}>
 			<span></span>
-			<input className="form-control" type="text" value={name} onChange={e=>boundUpdateCategory({index, name:e.target.value})}/>
-			<button type="button" className="close" aria-label="Close" onClick={()=>boundRemoveCategory({index})}>
-			  <span aria-hidden="true">&times;</span>
-			</button>
+			<input className="form-control" type="text" disabled={isFreezed} value={name} onChange={e=>boundUpdateCategory({index, name:e.target.value})}/>
+			{isFreezed===true?'':(
+				<button type="button" className="close" aria-label="Close" onClick={()=>boundRemoveCategory({index})}>
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			)}
 		</li>
 		)
 
@@ -21,13 +33,16 @@ export default function Component({categories, newCategory, boundAddCategory, bo
 	    		Certainty categories allow differentiating between their sources, and 
 	    		reason about how they may impact the underlaying original or truth value.
 	    	</p>
-	    	<div className="alert alert-secondary" role="alert">
-			  	Edit, remove or add certainty categories using the input fields and 
-			  	buttons bellow. Drag and drop each category in the uncertainty fields
-			  	of the sample on the right.
-			</div>
+	    	{isFreezed===true?'':(
+		    	<div className="alert alert-secondary" role="alert">
+				  	Edit, remove or add certainty categories using the input fields and 
+				  	buttons bellow. Drag and drop each category in the uncertainty fields
+				  	of the sample on the right.
+				</div>
+			)}
 	    	<ul>
 		    	{categoryInputs}
+		    	{isFreezed===true?'':(
 		    	<li>
 					<div className="d-flex">
 						<input className="form-control" type="text" value={newCategory} onChange={e=>boundUpdateNewCategory({name:e.target.value})}/>
@@ -36,6 +51,7 @@ export default function Component({categories, newCategory, boundAddCategory, bo
 						</button>
 					</div>
 				</li>
+				)}
 			</ul>
 	    </div>
     	);
