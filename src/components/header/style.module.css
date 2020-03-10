@@ -14,3 +14,13 @@
 }
 
 .logoContainer img{ height: 32px; }
+
+.header span{display: none;}
+
+@media (max-height: 950px) {
+  .header span{display: initial;}
+}
+
+@media (max-width: 990px) {
+  .header span{display: initial;}
+}

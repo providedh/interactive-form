@@ -10,7 +10,7 @@ import {Navigation} from 'app_containers';
 export default function Component(props) {
 
     return(
-    	<div className={"container-lg "+styles.body}>
+    	<div className={"container-xl "+styles.body}>
     		<Title />
     		<Navigation icons={['home-1', 'torso', 'circle', 'circle', 'circle', 'mail']}>
     			<LandingPage />

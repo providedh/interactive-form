@@ -28,7 +28,7 @@ export default function Component({
 
 	useScrolling(current, pagesRef.current);
 
-    return <div className="column">
+    return <div className="column mt-3">
     	<div className={styles.pageView}>
 	    	<div className={styles.pages} ref={pagesRef}>
 	    		{pages}
