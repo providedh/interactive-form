@@ -11,7 +11,7 @@
 calc(3*(100% + 50px))
 */
 .pages{
-	right: calc(1*(100% + 50px));
+	right: calc(3*(100% + 50px));
 	display: flex;
 	position: relative;
 	transition: right 0.5s ease-out;

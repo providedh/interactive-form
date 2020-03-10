@@ -16,7 +16,11 @@ export default function Component(props) {
     			<LandingPage />
     			<UserPage />
                 <SamplePage />
-    			<UseCasePage useCaseType={'text'} useCaseSource={'text_1'} />
+    			<UseCasePage 
+                    title='First use case: German recipes'
+                    description='An excerpt from a historical Greman food recipe.'
+                    useCaseType='text' 
+                    useCaseSource={'text_1'} />
     			<span> fourth page </span>
     			<SendPage />
     		</Navigation>
