@@ -4,7 +4,7 @@ import styles from './style.module.css';
 
 export default function Component({categories, newCategory, boundAddCategory, boundRemoveCategory, boundUpdateCategory, boundUpdateNewCategory}) {
 	const category = (name, index)=>(
-		<li key={index}>
+		<li key={index} draggable="true">
 			<span></span>
 			<input className="form-control" type="text" value={name} onChange={e=>boundUpdateCategory({index, name:e.target.value})}/>
 			<button type="button" className="close" aria-label="Close" onClick={()=>boundRemoveCategory({index})}>
@@ -17,14 +17,17 @@ export default function Component({categories, newCategory, boundAddCategory, bo
 
     return(
 	    <div className={styles.editor}>
-	    	<ul>{categoryInputs}</ul>
-	    	<li>
-				<span></span>
-				<input className="form-control" type="text" value={newCategory} onChange={e=>boundUpdateNewCategory({name:e.target.value})}/>
-				<button type="button" className="close" aria-label="Close" onClick={()=>boundAddCategory({name: newCategory})}>
-				  	Add
-				</button>
-			</li>
+	    	<ul>
+		    	{categoryInputs}
+		    	<li>
+					<div className="d-flex">
+						<input className="form-control" type="text" value={newCategory} onChange={e=>boundUpdateNewCategory({name:e.target.value})}/>
+						<button type="button" className="btn btn-light" aria-label="Close" onClick={()=>boundAddCategory({name: newCategory})}>
+						  	Add
+						</button>
+					</div>
+				</li>
+			</ul>
 	    </div>
     	);
 }
