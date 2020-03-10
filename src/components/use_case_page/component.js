@@ -9,7 +9,7 @@ export default function Component({useCaseType, useCaseSource}) {
 	
 
     return(
-	    <div className="my-3 container">
+	    <div className="my-3 container-fluid">
 	    	<h3 className="mt-3">Before you submit the survey</h3>
 	    	<p>Survey answers can't be changed once they are sent.</p>
 	    	<div className="row">

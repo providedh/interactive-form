@@ -5,7 +5,7 @@ import styles from './style.module.css';
 export default function Component(props) {
 
     return(
-	    <div className="my-3 container">
+	    <div className="my-3 container-fluid">
 	    	<div className="column">
 	    		<div className={styles.header + " row"}>
 	    			<img src="/public/img/providedh-logo.svg"/>

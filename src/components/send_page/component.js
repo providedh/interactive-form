@@ -7,7 +7,7 @@ import {CurrentState} from 'app_containers';
 export default function Component(props) {
 
     return(
-	    <div className="my-3 container">
+	    <div className="my-3 container-fluid">
 	    	<h3 className="mt-3">Before you submit the survey</h3>
 	    	<p>Survey answers can't be changed once they are sent.</p>
 	    	<CurrentState />
