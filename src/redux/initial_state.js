@@ -19,4 +19,4 @@ export const initialTaxonomyState = {
 	categories: ['Imprecision', 'Ignorance', 'Credibility', 'Incompleteness']
 };
 
-export const initialUseCasesState = [];
+export const initialSourceState = {};

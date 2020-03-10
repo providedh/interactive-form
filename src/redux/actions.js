@@ -11,7 +11,7 @@ export const REMOVE_CATEGORY = 'REMOVE_CATEGORY';
 export const UPDATE_CATEGORY = 'UPDATE_CATEGORY';
 export const UPDATE_NEW_CATEGORY = 'UPDATE_NEW_CATEGORY';
 
-export const UPDATE_CERTAINTY_CATEGORY = 'UPDATE_CERTAINTY_CATEGORY';
+export const UPDATE_SOURCE_CATEGORY = 'UPDATE_SOURCE_CATEGORY';
 export const SET_DRAGGED_CATEGORY = 'SET_DRAGGED_CATEGORY';
 
 export const UPDATE_USER = 'UPDATE_USER';
@@ -32,7 +32,7 @@ export const removeCategory = createActionGenerator(REMOVE_CATEGORY);
 export const updateCategory = createActionGenerator(UPDATE_CATEGORY);
 export const updateNewCategory = createActionGenerator(UPDATE_NEW_CATEGORY);
 
-export const updateCertaintyCategory = createActionGenerator(UPDATE_CERTAINTY_CATEGORY);
+export const updateSourceCategory = createActionGenerator(UPDATE_SOURCE_CATEGORY);
 export const setDraggedCategory = createActionGenerator(SET_DRAGGED_CATEGORY)
 
 export const updateUser = createActionGenerator(UPDATE_USER);

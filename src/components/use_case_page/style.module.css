@@ -2,6 +2,10 @@
 
 }
 
+.container{
+	height: calc(100% - 5rem);
+}
+
 .header img{
 	display: inline-block;
 	width: 245px;

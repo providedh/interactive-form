@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
-export default function Component({source, categories, draggedCategory}) {
+export default function Component({sourceName, source, categories, draggedCategory, boundUpdateSourceCategory}) {
 
 	function onDragOver(e){
 		e.stopPropagation();
@@ -10,7 +10,7 @@ export default function Component({source, categories, draggedCategory}) {
 	}
 
 	function onDrop(index){
-		console.log(index, draggedCategory);
+		boundUpdateSourceCategory({source: sourceName, index, name:draggedCategory})
 	}
 
 	function textFragment([prev, uncertain, post], index){

@@ -1,5 +1,10 @@
 .textSource > div{
 	line-height: 2.2em;
+
+}
+
+.textSource{
+    height: 100%;
 }
 
 .uncertain{

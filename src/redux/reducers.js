@@ -1,19 +1,45 @@
 import {combineReducers} from 'redux';
 import * as actions from './actions';
 
-import {initialNavigationState, initialUserState, initialTaxonomyState, initialUseCasesState} from './initial_state';
+import {initialNavigationState, initialUserState, initialTaxonomyState, initialSourceState} from './initial_state';
+
+const hasParam = (action, key) => action.payload.hasOwnProperty(key);
 
 function userReducer(state=initialUserState, action){
 	let newState;
 
 	switch(action.type){
 		case actions.UPDATE_USER:
-			if(action.payload.hasOwnProperty('key') && 
-					action.payload.hasOwnProperty('value') && 
+			if(hasParam(action, 'key') && hasParam(action, 'value') && 
 					state.hasOwnProperty(action.payload.key)){
 
 				newState = Object.assign({}, state);
 				newState[action.payload.key] = action.payload.value;
+			}
+			break;
+		default:
+			newState = state;
+			break;
+	}
+	return newState;
+}
+
+function sourceReducer(state=initialSourceState, action){
+	let newState;
+
+	switch(action.type){
+		case actions.UPDATE_SOURCE_CATEGORY:
+			if(hasParam(action, 'source') && hasParam(action, 'index') && hasParam(action, 'name')){
+				const {source, index, name} = action.payload;
+
+				newState = Object.assign({}, state);
+				if(!newState.hasOwnProperty(source)){
+					newState[source] = {};
+				}
+				
+				newState[source] = Object.assign({}, 
+					newState[source], 
+					Object.fromEntries([[index, name]]));
 			}
 			break;
 		default:
@@ -82,4 +108,4 @@ function navigationReducer(state=initialNavigationState, action){
 	return newState;
 }
 
-export const appReducer = combineReducers({navigation: navigationReducer, user: userReducer, taxonomy: taxonomyReducer});
+export const appReducer = combineReducers({navigation: navigationReducer, user: userReducer, taxonomy: taxonomyReducer, sources: sourceReducer});
