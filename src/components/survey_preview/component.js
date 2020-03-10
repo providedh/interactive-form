@@ -1,38 +1,88 @@
+import $ from 'jquery';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
-export default function Component(props) {
+export default function Component({state}) {
+	function sendSurvey(e){
+		e.preventDefault()
+	    const csrftoken = '';//jQuery("[name=csrfmiddlewaretoken]").val();
+	    $.ajaxSetup({
+	        beforeSend: function(xhr, settings) {
+	            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+	        }
+	    });
 
+	    $.ajax({
+	        type: "POST",
+	        url: "/survey",
+	        data: JSON.stringify(state),
+	        dataType: "json",
+	        contentType : 'application/json',
+	        success: function(resultData){
+	        	console.log(resultData);
+	            //window.location.href = '/projects/' + resultData.id
+	        },
+	        error: function (xhr, ajaxOptions, thrownError) {
+	        	console.log(xhr);
+	        }
+	    });
+	}
     return(
-	    <table className="table table-striped table-bordered">
-		  <thead>
-		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">First</th>
-		      <th scope="col">Last</th>
-		      <th scope="col">Handle</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <th scope="row">1</th>
-		      <td>Mark</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		    </tr>
-		    <tr>
-		      <th scope="row">2</th>
-		      <td>Jacob</td>
-		      <td>Thornton</td>
-		      <td>@fat</td>
-		    </tr>
-		    <tr>
-		      <th scope="row">3</th>
-		      <td colSpan="2">Larry the Bird</td>
-		      <td>@twitter</td>
-		    </tr>
-		  </tbody>
-		</table>
+    	<div>
+    		<div className="row px-5">
+    			<div className="col">
+				    <table className="table table-striped table-bordered">
+					  <thead>
+					    <tr>
+					      <th scope="col">Personal information</th>
+					      <th scope="col"></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>Age</td>
+					      <td>{state.user.age}</td>
+					    </tr>
+					    <tr>
+					      <td>Gender</td>
+					      <td>{state.user.gender}</td>
+					    </tr>
+					    <tr>
+					      <td>Highest education</td>
+					      <td>{state.user.education}</td>
+					    </tr>
+					    <tr>
+					      <td>Work/research field</td>
+					      <td>{state.user.field}</td>
+					    </tr>
+					    <tr>
+					      <td>Researcher</td>
+					      <td>{state.user.researcher}</td>
+					    </tr>
+					    <tr>
+					      <td>Previous knowledge on Digital Humanities</td>
+					      <td>{state.user.previousDH}</td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+				<div className="col">
+					<table className="table table-striped table-bordered">
+					  	<thead>
+					    	<tr><th scope="col">Taxonomy</th></tr>
+					  	</thead>
+					  	<tbody>
+					  		{state.taxonomy.categories.map(x=>(
+						    	<tr key={x}><td>{x}</td></tr>
+					  		))}
+					  	</tbody>
+					</table>
+				</div>
+			</div>
+			<form className="d-flex justify-content-center">
+	    		<button type="submit" onClick={sendSurvey} className="btn btn-primary">Submit your responses</button>
+			</form>
+		</div>
     	);
 }
