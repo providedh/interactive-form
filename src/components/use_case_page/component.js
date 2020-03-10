@@ -2,10 +2,13 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
+import Sources from 'app_sources';
 import {Taxonomy} from 'app_containers';
+import {TextSource} from 'app_components';
 
 export default function Component({useCaseType, useCaseSource}) {
 	
+
     return(
 	    <div className="my-3 container">
 	    	<h3 className="mt-3">Before you submit the survey</h3>
@@ -15,6 +18,7 @@ export default function Component({useCaseType, useCaseSource}) {
 	    			<Taxonomy />
 	    		</div>
 	    		<div className="col-7">
+	    			<TextSource source={Sources[useCaseSource]} categories={{2: 'Gaps'}}/>
 	    		</div>
 	    	</div>
     	</div>

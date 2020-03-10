@@ -16,7 +16,7 @@ export default function Component(props) {
     			<LandingPage />
     			<UserPage />
                 <SamplePage />
-    			<UseCasePage useCaseType={'text'} useCaseSource={'first'} />
+    			<UseCasePage useCaseType={'text'} useCaseSource={'text_1'} />
     			<span> fourth page </span>
     			<SendPage />
     		</Navigation>

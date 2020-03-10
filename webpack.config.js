@@ -15,6 +15,7 @@ module.exports = {
     app_actions: __dirname + '/src/redux/actions.js',
     app_components: __dirname + '/src/components',
     app_containers: __dirname + '/src/containers',
+    app_sources: __dirname + '/src/sources',
     }
   },
   module: {

@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
 export default function Component(props) {
-	console.log(props)
 
     return(
 	    <table className="table table-striped table-bordered">
