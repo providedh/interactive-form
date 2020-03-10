@@ -16,7 +16,6 @@ export default function Component({
 
 	const category = (name, index)=>(
 		<li key={index} draggable={isEditable} onDragStart={()=>boundSetDraggedCategory({name})}>
-			<span></span>
 			<input className="form-control" type="text" disabled={isFreezed} value={name} onChange={e=>boundUpdateCategory({index, name:e.target.value})}/>
 			{isFreezed===true?'':(
 				<button type="button" className="close" aria-label="Close" onClick={()=>boundRemoveCategory({index})}>
