@@ -17,6 +17,15 @@ export default function Component({categories, newCategory, boundAddCategory, bo
 
     return(
 	    <div className={styles.editor}>
+	    	<p>
+	    		Certainty categories allow differentiating between their sources, and 
+	    		reason about how they may impact the underlaying original or truth value.
+	    	</p>
+	    	<div className="alert alert-secondary" role="alert">
+			  	Edit, remove or add certainty categories using the input fields and 
+			  	buttons bellow. Drag and drop each category in the uncertainty fields
+			  	of the sample on the right.
+			</div>
 	    	<ul>
 		    	{categoryInputs}
 		    	<li>
