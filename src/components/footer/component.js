@@ -15,17 +15,17 @@ export default function Component(props) {
 	    		</div>
 	    		<div className="logos">
 	    			<ul className="footer-cooperate d-flex flex-wrap justify-content-center list-unstyled mt-3 mt-md-5 mb-3">
-			            <img src="/public/img/cooperation/1.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/pcss.svg" className="mt-2 mb-2 ml-4 mr-4  --pcss"/>
-			            <img src="/public/img/cooperation/3.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/4.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/5.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/6.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/7.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/8.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/9.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/10.png" className="mt-2 mb-2 ml-4 mr-4 "/>
-			            <img src="/public/img/cooperation/11.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/1.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/pcss.svg" className="mt-2 mb-2 ml-4 mr-4  --pcss"/>
+			            <img src="public/img/cooperation/3.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/4.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/5.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/6.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/7.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/8.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/9.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/10.png" className="mt-2 mb-2 ml-4 mr-4 "/>
+			            <img src="public/img/cooperation/11.png" className="mt-2 mb-2 ml-4 mr-4 "/>
 			        </ul>
 	    		</div>
     		</div>

@@ -8,7 +8,7 @@ export default function Component(props) {
 	    <div className="my-3 container-fluid">
 	    	<div className="column mx-4">
 	    		<div className={styles.header + " row"}>
-	    			<img src="/public/img/providedh-logo.svg"/>
+	    			<img src="public/img/providedh-logo.svg"/>
 	    			<p>
 	    				The PROgressive VIsual DEcision-Making in Digital Humanities (PROVIDEDH) project is a three-year project funded within the CHIST-ERA call 2016. The project aims to give Digital Humanities (DH) scholars a space to explore and assess the completeness and evolution of digital research objects and the degree of uncertainty that the models applied to the data incorporate, among others.
 	    			</p>
