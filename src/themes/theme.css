@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+	--lightgrey: #f8f9f9;
+	--grey: #eee;
+	--darkgrey: #e8e9e9;
+	--secundary: #337ab7;
+	--dark: #263947;
+	--space-s: 10px;
+	--space-m: 15px;
+	--space-l: 30px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin-bottom: .5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}

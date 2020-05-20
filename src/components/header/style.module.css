@@ -1,0 +1,26 @@
+.header{
+	height: 60px;
+	background-color: var(--dark);
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+}
+
+.logoContainer{
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;	
+}
+
+.logoContainer img{ height: 32px; }
+
+.header span{display: none;}
+
+@media (max-height: 950px) {
+  .header span{display: initial;}
+}
+
+@media (max-width: 990px) {
+  .header span{display: initial;}
+}

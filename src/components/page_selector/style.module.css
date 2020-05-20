@@ -1,0 +1,16 @@
+.body{
+	flex-grow: 1;
+}
+
+.icon{
+	color: #7b9bc2;
+}
+
+.icon i{
+	vertical-align: middle;
+}
+
+.current{
+	font-size: 1.2em;
+	color: var(--dark);
+}

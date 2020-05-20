@@ -1,0 +1,14 @@
+.footer img{
+    max-height: 36px;
+}
+.lowerSpacer{
+	border-bottom: 25px solid #34c1b0;
+}
+.footerCopyright{
+    border-left: 1px solid #e6eae9;
+    padding: 0 15px;
+}
+
+.footerCopyright a{
+	color: #00b3b0;
+}
