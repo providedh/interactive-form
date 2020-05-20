@@ -1,6 +1,6 @@
 const path = require('path');
 
-const outputDirectory = '../static/vis_dashboard/js'
+const outputDirectory = './docs'
 
 module.exports = {
   entry: './src/index.js',
