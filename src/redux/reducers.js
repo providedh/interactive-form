@@ -42,7 +42,7 @@ function annotationsReducer(state=initialAnnotationsState, action){
 
 				if(!Object.hasOwnProperty.call(newState, useCase)){ newState[useCase] = {} }
 
-				newState[useCase][id] = {words, userCategories: null, providedhCategories: null}
+				newState[useCase][id] = {words, userCategories: [], providedhCategories: []}
 			}
 			break;
 		case actions.REMOVE_ANNOTATION:
@@ -69,7 +69,7 @@ function annotationsReducer(state=initialAnnotationsState, action){
 				const id = words.join('_')
 				if(newState[useCase][id].userCategories.includes(category)){
 					newState = Object.assign({}, state);
-					const index = newState[useCase][id].userCategories.index(category)
+					const index = newState[useCase][id].userCategories.indexOf(category)
 					newState[useCase][id].userCategories.splice(index, 1)
 				}
 			}

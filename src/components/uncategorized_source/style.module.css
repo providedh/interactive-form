@@ -27,4 +27,5 @@
     line-height: 6px;
     vertical-align: baseline;
     color: var(--dark);
+    white-space: nowrap;
 }
