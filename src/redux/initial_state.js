@@ -20,3 +20,5 @@ export const initialTaxonomyState = {
 };
 
 export const initialSourceState = {};
+
+export const initialAnnotationsState = {}

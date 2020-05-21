@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
 import Sources from 'app_sources';
-import {TaxonomyEditor, TextSource} from 'app_components';
+import TaxonomyEditor from 'app_containers/taxonomy'
+import TextSource from 'app_containers/text_source';
 
 export default function Component({useCaseType, useCaseSource}) {
 	const types = ['Gaps', 'Credibility'],

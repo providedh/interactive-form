@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import styles from './style.module.css';
 
-import {PageSelector} from 'app_components';
+import PageSelector from 'app_components/page_selector';
 
 function useScrolling(index, pages){
 	useEffect(()=>{

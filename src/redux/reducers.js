@@ -1,7 +1,13 @@
 import {combineReducers} from 'redux';
 import * as actions from './actions';
 
-import {initialNavigationState, initialUserState, initialTaxonomyState, initialSourceState} from './initial_state';
+import {
+	initialNavigationState,
+	initialUserState,
+	initialTaxonomyState,
+	initialSourceState,
+	initialAnnotationsState
+} from './initial_state';
 
 const hasParam = (action, key) => action.payload.hasOwnProperty(key);
 
@@ -19,6 +25,72 @@ function userReducer(state=initialUserState, action){
 			break;
 		default:
 			newState = state;
+			break;
+	}
+	return newState;
+}
+
+function annotationsReducer(state=initialAnnotationsState){
+	let newState;
+
+	switch(action.type){
+		case actions.ADD_ANNOTATION:
+			if(hasParam(action, 'words') && hasParam(action, 'useCase')){
+				const {useCase, words} = action
+				const id = words.join('_');
+				newState = Object.assign({}, state);
+				newState[useCase][id] = {words, userCategories: null, providedhCategories: null}
+			}
+			break;
+		case actions.REMOVE_ANNOTATION:
+			if(hasParam(action, 'words') && hasParam(action, 'useCase')){
+				const {useCase, words} = action
+				const id = words.join('_');
+				newState = Object.assign({}, state);
+				delete newState[useCase][id]
+			}
+			break;
+		case actions.ADD_USER_CATEGORY:
+			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
+				const {useCase, words, category} = action
+				const id = words.join('_')
+				if(!newState[useCase][id].userCategories.includes(category)){
+					newState = Object.assign({}, state);
+					newState[useCase][id].userCategories.push(category)
+				}
+			}
+			break;
+		case actions.REMOVE_USER_CATEGORY:
+			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
+				const {useCase, words, category} = action
+				const id = words.join('_')
+				if(newState[useCase][id].userCategories.includes(category)){
+					newState = Object.assign({}, state);
+					const index = newState[useCase][id].userCategories.index(category)
+					newState[useCase][id].userCategories.splice(index, 1)
+				}
+			}
+			break;
+		case actions.ADD_PROVIDEDH_CATEGORY:
+			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
+				const {useCase, words, category} = action
+				const id = words.join('_')
+				if(!newState[useCase][id].providedhCategories.includes(category)){
+					newState = Object.assign({}, state);
+					newState[useCase][id].providedhCategories.push(category)
+				}
+			}
+			break;
+		case actions.REMOVE_PROVIDEDH_CATEGORY:
+			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
+				const {useCase, words, category} = action
+				const id = words.join('_')
+				if(newState[useCase][id].providedhCategories.includes(category)){
+					newState = Object.assign({}, state);
+					const index = newState[useCase][id].providedhCategories.index(category)
+					newState[useCase][id].providedhCategories.splice(index, 1)
+				}
+			}
 			break;
 	}
 	return newState;
