@@ -4,10 +4,8 @@ import UnannotatedSource from 'app_components/unannotated_source';
 
 import {addAnnotation, removeAnnotation} from 'app_actions';
 
-const mapStateToProps = (state, ownProps)=>{
-	const data = {
-		annotations: state
-	};
+const mapStateToProps = ({annotations}, ownProps)=>{
+	const data = {annotations};
 	return Object.assign({}, ownProps, data)
 };
 

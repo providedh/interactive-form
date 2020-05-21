@@ -9,7 +9,7 @@ import {
 	initialAnnotationsState
 } from './initial_state';
 
-const hasParam = (action, key) => action.payload.hasOwnProperty(key);
+const hasParam = (action, key) => Object.hasOwnProperty.call(action.payload, key);
 
 function userReducer(state=initialUserState, action){
 	let newState;
@@ -30,21 +30,24 @@ function userReducer(state=initialUserState, action){
 	return newState;
 }
 
-function annotationsReducer(state=initialAnnotationsState){
-	let newState;
+function annotationsReducer(state=initialAnnotationsState, action){
+	let newState = state;
 
 	switch(action.type){
 		case actions.ADD_ANNOTATION:
 			if(hasParam(action, 'words') && hasParam(action, 'useCase')){
-				const {useCase, words} = action
+				const {useCase, words} = action.payload
 				const id = words.join('_');
 				newState = Object.assign({}, state);
+
+				if(!Object.hasOwnProperty.call(newState, useCase)){ newState[useCase] = {} }
+
 				newState[useCase][id] = {words, userCategories: null, providedhCategories: null}
 			}
 			break;
 		case actions.REMOVE_ANNOTATION:
 			if(hasParam(action, 'words') && hasParam(action, 'useCase')){
-				const {useCase, words} = action
+				const {useCase, words} = action.payload
 				const id = words.join('_');
 				newState = Object.assign({}, state);
 				delete newState[useCase][id]
@@ -52,7 +55,7 @@ function annotationsReducer(state=initialAnnotationsState){
 			break;
 		case actions.ADD_USER_CATEGORY:
 			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
-				const {useCase, words, category} = action
+				const {useCase, words, category} = action.payload
 				const id = words.join('_')
 				if(!newState[useCase][id].userCategories.includes(category)){
 					newState = Object.assign({}, state);
@@ -62,7 +65,7 @@ function annotationsReducer(state=initialAnnotationsState){
 			break;
 		case actions.REMOVE_USER_CATEGORY:
 			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
-				const {useCase, words, category} = action
+				const {useCase, words, category} = action.payload
 				const id = words.join('_')
 				if(newState[useCase][id].userCategories.includes(category)){
 					newState = Object.assign({}, state);
@@ -73,7 +76,7 @@ function annotationsReducer(state=initialAnnotationsState){
 			break;
 		case actions.ADD_PROVIDEDH_CATEGORY:
 			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
-				const {useCase, words, category} = action
+				const {useCase, words, category} = action.payload
 				const id = words.join('_')
 				if(!newState[useCase][id].providedhCategories.includes(category)){
 					newState = Object.assign({}, state);
@@ -83,7 +86,7 @@ function annotationsReducer(state=initialAnnotationsState){
 			break;
 		case actions.REMOVE_PROVIDEDH_CATEGORY:
 			if(hasParam(action, 'words') && hasParam(action, 'useCase') && hasParam(action, 'category')){
-				const {useCase, words, category} = action
+				const {useCase, words, category} = action.payload
 				const id = words.join('_')
 				if(newState[useCase][id].providedhCategories.includes(category)){
 					newState = Object.assign({}, state);
@@ -180,4 +183,4 @@ function navigationReducer(state=initialNavigationState, action){
 	return newState;
 }
 
-export const appReducer = combineReducers({navigation: navigationReducer, user: userReducer, taxonomy: taxonomyReducer, sources: sourceReducer});
+export const appReducer = combineReducers({navigation: navigationReducer, annotations: annotationsReducer, user: userReducer, taxonomy: taxonomyReducer, sources: sourceReducer});
