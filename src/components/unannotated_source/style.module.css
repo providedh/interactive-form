@@ -1,0 +1,16 @@
+.textSource > div{
+	line-height: 2.2em;
+
+}
+
+.textSource{
+    height: 100%;
+}
+
+.uncertain{
+	border: solid 2px var(--dark);
+    border-radius: 6px;
+    padding: 2px;
+    margin: 0 5px;
+    position: relative;
+}

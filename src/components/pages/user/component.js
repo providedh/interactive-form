@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
-import {User} from 'app_containers';
+import User from 'app_containers/user';
 
 export default function Component(props) {
 

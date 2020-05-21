@@ -16,6 +16,13 @@ export const SET_DRAGGED_CATEGORY = 'SET_DRAGGED_CATEGORY';
 
 export const UPDATE_USER = 'UPDATE_USER';
 
+export const ADD_ANNOTATION = 'ADD_ANNOTATION'; 
+export const REMOVE_ANNOTATION = 'REMOVE_ANNOTATION';
+export const ADD_USER_CATEGORY = 'ADD_USER_CATEGORY';
+export const REMOVE_USER_CATEGORY = 'REMOVE_USER_CATEGORY';
+export const ADD_PROVIDEDH_CATEGORY = 'ADD_PROVIDEDH_CATEGORY';
+export const REMOVE_PROVIDEDH_CATEGORY = 'REMOVE_PROVIDEDH_CATEGORY';
+
 // Action generators
 
 function createActionGenerator(type) {
@@ -36,3 +43,10 @@ export const updateSourceCategory = createActionGenerator(UPDATE_SOURCE_CATEGORY
 export const setDraggedCategory = createActionGenerator(SET_DRAGGED_CATEGORY)
 
 export const updateUser = createActionGenerator(UPDATE_USER);
+
+export const addAnnotation = createActionGenerator(ADD_ANNOTATION);
+export const removeAnnotation = createActionGenerator(REMOVE_ANNOTATION);
+export const addUserCategory = createActionGenerator(ADD_USER_CATEGORY);
+export const removeUserCategory = createActionGenerator(REMOVE_USER_CATEGORY);
+export const addProvidedhCategory = createActionGenerator(ADD_PROVIDEDH_CATEGORY);
+export const removeProvidedhCategory = createActionGenerator(REMOVE_PROVIDEDH_CATEGORY);
