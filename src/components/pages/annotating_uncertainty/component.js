@@ -13,7 +13,14 @@ export default function Component({title, description, useCase, useCaseType, use
 	    	<p>{description}</p>
 	    	<div className={`row ${styles.container}`}>
 	    		<div className="col-5 bg-blue">
-
+					Any piece of information is subjected to have underlying uncertainty.
+					After reading through the following excerpt, select the fragments that 
+					bring you doubts; either in the ortography, the meaning or coherence with
+					the rest of the text.
+					<div className="alert alert-secondary mt-2" role="alert">
+						Select the text to create uncertainty annotations. Click on annotated text
+						to remove the annotations.
+					</div>
 	    		</div>
 	    		<div className="col-7">
 					<UnannotatedSource useCase={useCase} sourceName={useCaseSource} source={Sources[useCaseSource]}/>
