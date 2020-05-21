@@ -1,0 +1,30 @@
+.textSource > div{
+	line-height: 2.2em;
+
+}
+
+.textSource{
+    height: 100%;
+}
+
+.uncertain{
+	border: solid 2px var(--dark);
+    border-radius: 6px;
+    padding: 2px;
+    margin: 0 5px;
+    position: relative;
+}
+
+.uncertain::after {
+    content: attr(data-category);
+    position: absolute;
+    left: .5em;
+    background: white;
+    bottom: -4px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 5px;
+    line-height: 6px;
+    vertical-align: baseline;
+    color: var(--dark);
+}
