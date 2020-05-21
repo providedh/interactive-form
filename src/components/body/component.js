@@ -19,8 +19,11 @@ export default function Component(props) {
     return(
     	<div className={"container-xl "+styles.body}>
     		<Title />
-    		<Navigation icons={['circle', 'circle', 'circle', 'home-1', 'torso', 'circle', 'circle', 'mail']}>
-				<AnnotatingUncertaintyPage
+    		<Navigation icons={['home-1', 'torso', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'mail']}>
+    			<LandingPage />
+    			<UserPage />
+                <SamplePage />
+    			<AnnotatingUncertaintyPage
 					useCase='1'
                     title='First use case: German recipes'
                     description='An excerpt from a historical Greman food recipe.'
@@ -38,14 +41,42 @@ export default function Component(props) {
                     description='An excerpt from a historical Greman food recipe.'
                     useCaseType='raw'
                     useCaseSource={'raw_1'} />
-    			<LandingPage />
-    			<UserPage />
-                <SamplePage />
-    			<UseCasePage 
-                    title='First use case: German recipes'
-                    description='An excerpt from a historical Greman food recipe.'
-                    useCaseType='text' 
-                    useCaseSource={'text_1'} />
+                <AnnotatingUncertaintyPage
+					useCase='2'
+                    title='Second use case: A war registry'
+                    description='A registry from the Second World War.'
+                    useCaseType='raw'
+                    useCaseSource={'raw_1'} />
+				<CategorizingUncertaintyPage
+					useCase='2'
+                    title='Second use case: A war registry'
+                    description='A registry from the Second World War.'
+                    useCaseType='raw'
+                    useCaseSource={'raw_1'} />
+                <RemapUncertaintyPage
+					useCase='2'
+                    title='Second use case: A war registry'
+                    description='A registry from the Second World War.'
+                    useCaseType='raw'
+                    useCaseSource={'raw_1'} />
+                <AnnotatingUncertaintyPage
+					useCase='3'
+                    title='Third use case: Newspaper'
+                    description='An article from a modern newspaper.'
+                    useCaseType='raw'
+                    useCaseSource={'raw_1'} />
+				<CategorizingUncertaintyPage
+					useCase='3'
+                    title='Third use case: Newspaper'
+                    description='An article from a modern newspaper.'
+                    useCaseType='raw'
+                    useCaseSource={'raw_1'} />
+                <RemapUncertaintyPage
+					useCase='3'
+                    title='Third use case: Newspaper'
+                    description='An article from a modern newspaper.'
+                    useCaseType='raw'
+                    useCaseSource={'raw_1'} />
     			<SendPage />
     		</Navigation>
     	</div>
