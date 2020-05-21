@@ -15,7 +15,7 @@ export default function Component({title, description, useCase, useCaseType, use
 	    	<p>{description}</p>
 	    	<div className={`row ${styles.container}`}>
 	    		<div className="col-5 bg-blue">
-					<Taxonomy categories={types} freezed={false} editable={false}/>
+					<Taxonomy freezedCategories={types} freezed={false} editable={false}/>
 	    		</div>
 	    		<div className="col-7">
 					<UnremappedSource useCase={useCase} sourceName={useCaseSource} source={Sources[useCaseSource]}/>

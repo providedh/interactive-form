@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
 export default function Component({
+			freezedCategories = null,
 			categories, 
 			newCategory, 
 			boundAddCategory, 
@@ -24,7 +25,8 @@ export default function Component({
 		</li>
 		)
 
-	const categoryInputs = categories.map((name, index)=>category(name, index));
+	const categoryNames = freezedCategories === null ? categories : freezedCategories
+	const categoryInputs = categoryNames.map((name, index)=>category(name, index));
 
     return(
 	    <div className={styles.editor}>
