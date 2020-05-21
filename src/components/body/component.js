@@ -11,6 +11,7 @@ import SendPage from 'app_components/pages/send'
 import UseCasePage from 'app_components//pages/use_case'
 import SamplePage from 'app_components/pages/sample'
 import Navigation from 'app_containers/navigation';
+import RemapUncertaintyPage from 'app_components/pages/remap_uncertainty'
 
 
 export default function Component(props) {
@@ -18,7 +19,7 @@ export default function Component(props) {
     return(
     	<div className={"container-xl "+styles.body}>
     		<Title />
-    		<Navigation icons={['circle', 'circle', 'home-1', 'torso', 'circle', 'circle', 'mail']}>
+    		<Navigation icons={['circle', 'circle', 'circle', 'home-1', 'torso', 'circle', 'circle', 'mail']}>
 				<AnnotatingUncertaintyPage
 					useCase='1'
                     title='First use case: German recipes'
@@ -26,6 +27,12 @@ export default function Component(props) {
                     useCaseType='raw'
                     useCaseSource={'raw_1'} />
 				<CategorizingUncertaintyPage
+					useCase='1'
+                    title='First use case: German recipes'
+                    description='An excerpt from a historical Greman food recipe.'
+                    useCaseType='raw'
+                    useCaseSource={'raw_1'} />
+                <RemapUncertaintyPage
 					useCase='1'
                     title='First use case: German recipes'
                     description='An excerpt from a historical Greman food recipe.'

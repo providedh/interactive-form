@@ -10,14 +10,13 @@ export default function Component({
 			boundUpdateCategory, 
 			boundUpdateNewCategory, 
 			boundSetDraggedCategory,
-			freezed}) {
-	const isFreezed = freezed==undefined?false:freezed,
-		isEditable = freezed==undefined?true:!freezed;
+			freezed=false,
+			editable=true}) {
 
 	const category = (name, index)=>(
-		<li key={index} draggable={isEditable} onDragStart={()=>boundSetDraggedCategory({name})}>
-			<input className="form-control" type="text" disabled={isFreezed} value={name} onChange={e=>boundUpdateCategory({index, name:e.target.value})}/>
-			{isFreezed===true?'':(
+		<li key={index} draggable={!freezed} onDragStart={()=>boundSetDraggedCategory({name})}>
+			<input className="form-control" type="text" disabled={!editable} value={name} onChange={e=>boundUpdateCategory({index, name:e.target.value})}/>
+			{editable===false?'':(
 				<button type="button" className="close" aria-label="Close" onClick={()=>boundRemoveCategory({index})}>
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -33,7 +32,7 @@ export default function Component({
 	    		Certainty categories allow differentiating between their sources, and 
 	    		reason about how they may impact the underlaying original or truth value.
 	    	</p>
-	    	{isFreezed===true?'':(
+	    	{editable===false?'':(
 		    	<div className="alert alert-secondary" role="alert">
 				  	Edit, remove or add certainty categories using the input fields and 
 				  	buttons bellow. Drag and drop each category in the uncertainty fields
@@ -42,7 +41,7 @@ export default function Component({
 			)}
 	    	<ul>
 		    	{categoryInputs}
-		    	{isFreezed===true?'':(
+		    	{editable===false?'':(
 		    	<li>
 					<div className="d-flex">
 						<input className="form-control" type="text" value={newCategory} onChange={e=>boundUpdateNewCategory({name:e.target.value})}/>
