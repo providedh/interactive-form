@@ -126,25 +126,28 @@ function sourceReducer(state=initialSourceState, action){
 
 function taxonomyReducer(state=initialTaxonomyState, action){
 	let newState = Object.assign({}, state);
+	const hasName = action.payload != undefined && action.payload.hasOwnProperty('name')
+	const hasIndex = action.payload != undefined && action.payload.hasOwnProperty('index')
 
-	const hasName = action.payload != undefined && action.payload.hasOwnProperty('name'),
-		hasIndex = action.payload != undefined && action.payload.hasOwnProperty('index');
 	switch(action.type){
 		case actions.ADD_CATEGORY:
 			if(hasName === true){
 				newState = {categories:[...state.categories, action.payload.name], 
-						newCategory: '', 
+						newCategory: '',
+						historic: [state.historic, [...state.categories, action.payload.name]],
 						draggedCategory: state.draggedCategory};
 			}
 			break;
 		case actions.REMOVE_CATEGORY:
 			if(hasIndex === true){
 				newState.categories = state.categories.filter((x,i)=>i!=action.payload.index);
+				newState.historic.push(newState.categories)
 			}
 			break;
 		case actions.UPDATE_CATEGORY:
 			if(hasName === true && hasIndex === true){
 				newState.categories = state.categories.map((x,i)=>i!=action.payload.index?x:action.payload.name);
+				newState.historic.push(newState.categories)
 			}
 			break;
 		case actions.UPDATE_NEW_CATEGORY:
