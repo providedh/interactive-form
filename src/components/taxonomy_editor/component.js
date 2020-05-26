@@ -30,10 +30,6 @@ export default function Component({
 
     return(
 	    <div className={styles.editor}>
-	    	<p>
-	    		Certainty categories allow differentiating between their sources, and 
-	    		reason about how they may impact the underlaying original or truth value.
-	    	</p>
 	    	{editable===false?'':(
 		    	<div className="alert alert-secondary" role="alert">
 				  	Edit, remove or add certainty categories using the input fields and 
