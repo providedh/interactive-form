@@ -134,7 +134,7 @@ function taxonomyReducer(state=initialTaxonomyState, action){
 			if(hasName === true){
 				newState = {categories:[...state.categories, action.payload.name], 
 						newCategory: '',
-						historic: [state.historic, [...state.categories, action.payload.name]],
+						historic: [...state.historic, [...state.categories, action.payload.name]],
 						draggedCategory: state.draggedCategory};
 			}
 			break;

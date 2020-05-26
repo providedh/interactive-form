@@ -17,7 +17,7 @@ export const initialTaxonomyState = {
 	newCategory: '',
 	draggedCategory: '',
 	categories: ['Ambiguity'],//['Imprecision', 'Ignorance', 'Credibility', 'Incompleteness']
-	historic: [['Ambiguity'],]
+	historic: [['Ambiguity',]]
 };
 
 export const initialSourceState = {};

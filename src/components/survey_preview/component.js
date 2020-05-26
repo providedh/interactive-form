@@ -3,20 +3,32 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from './style.module.css';
 
+        window.ajax = $.ajax
 export default function Component({state}) {
+  const {annotations, user, taxonomy} = state
+  const annotationList = []
+  
+  Object.entries(annotations)
+    .forEach(([source, sourceAnnotations]) => {
+        Object.values(sourceAnnotations).forEach(annotation => {
+            annotationList.push(Object.assign({}, {source}, annotation))
+        })
+    })
+        
 	function sendSurvey(e){
 		e.preventDefault()
+        /*
 	    const csrftoken = '';//jQuery("[name=csrfmiddlewaretoken]").val();
 	    $.ajaxSetup({
 	        beforeSend: function(xhr, settings) {
 	            xhr.setRequestHeader("X-CSRFToken", csrftoken);
 	        }
 	    });
-
+        */
 	    $.ajax({
 	        type: "POST",
-	        url: "/survey",
-	        data: JSON.stringify(state),
+	        url: "http://0.0.0.0:8000/form",
+	        data: JSON.stringify({annotations: annotationList, user, taxonomy}),
 	        dataType: "json",
 	        contentType : 'application/json',
 	        success: function(resultData){
