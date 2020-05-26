@@ -90,7 +90,7 @@ function annotationsReducer(state=initialAnnotationsState, action){
 				const id = words.join('_')
 				if(newState[useCase][id].providedhCategories.includes(category)){
 					newState = Object.assign({}, state);
-					const index = newState[useCase][id].providedhCategories.index(category)
+					const index = newState[useCase][id].providedhCategories.indexOf(category)
 					newState[useCase][id].providedhCategories.splice(index, 1)
 				}
 			}

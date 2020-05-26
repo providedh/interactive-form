@@ -43,7 +43,7 @@ export default function Component({sourceName, source, annotations, draggedCateg
 								 onClick={()=>boundRemoveProvidedhCategory({
 									 useCase, 
 									 words:annotation.words, 
-									 category: annotation.userCategories[annotation.userCategories.length - 1]})}> 
+									 category: annotation.providedhCategories[annotation.providedhCategories.length - 1]})}> 
 				{words.slice(annotation.words[0], annotation.words[1]).join(' ')} 
 			</span>)
 			fragments.push(' ')
