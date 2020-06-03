@@ -1,6 +1,6 @@
 const path = require('path');
 
-const outputDirectory = './docs'
+const outputDirectory = '../docs'
 
 module.exports = {
   entry: './src/index.js',

@@ -1,0 +1,4 @@
+wheel
+jupyter
+ipython
+pandas
