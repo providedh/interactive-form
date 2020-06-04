@@ -17,5 +17,13 @@ run tar -xf analysis.tar.gz
 run tar -xf backend.tar.gz
 
 copy ./start.sh ./start.sh
-#run chmod +x ./start.sh
+
+user root
+run chmod +x ./start.sh
+run chmod +x /home/jovyan/workdir/backend/interactive_form_server
+
+run apt update && apt install libcap2-bin -y
+run setcap 'cap_net_bind_service=+ep' /home/jovyan/workdir/backend/interactive_form_server
+
+USER $NB_UID
 entrypoint ["bash", "./start.sh"]
