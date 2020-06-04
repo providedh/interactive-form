@@ -17,7 +17,7 @@ function User({user, boundUpdateUser}) {
     		<div className="form-group row">
 			    <label htmlFor="age" className="col-6 col-lg-2 col-form-label">Age</label>
 			    <div className="col-6 col-lg-10">
-			      <input type="number" value={user.age} onChange={e=>setValue('age', e.target.value)} className="form-control" id="age"/>
+			      <input type="number" value={user.age} onChange={e=>setValue('age', +e.target.value)} className="form-control" id="age"/>
 			    </div>
 		  	</div>
 		  	<div className="form-group row">
@@ -72,7 +72,7 @@ function User({user, boundUpdateUser}) {
 				          	checked={user.previousDH == 'no'}
 				          	onChange={e=>setValue('previousDH', e.target.value)}
 				          	name="previousDH" id="gridRadios12" value="option1"/>
-				          <label className="form-check-label" htmlFor="gridRadios21">
+				          <label className="form-check-label" htmlFor="yes">
 				            Yes
 				          </label>
 				        </div>
@@ -80,7 +80,7 @@ function User({user, boundUpdateUser}) {
 				          <input className="form-check-input" type="radio" 
 				          	checked={user.previousDH == 'no'}
 				          	onChange={e=>setValue('previousDH', e.target.value)}
-				          	name="previousDH" id="gridRadios22" value="option2"/>
+				          	name="previousDH" id="gridRadios22" value="no"/>
 				          <label className="form-check-label" htmlFor="gridRadios22">
 				            No
 				          </label>
