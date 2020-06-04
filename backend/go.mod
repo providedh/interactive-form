@@ -9,7 +9,8 @@ require (
 	github.com/ilyakaznacheev/cleanenv v1.2.3
 	github.com/kardianos/govendor v1.0.9 // indirect
 	github.com/labstack/echo v3.3.10+incompatible
-	github.com/labstack/echo/v4 v4.1.16
+	github.com/labstack/echo/v4 v4.1.16 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	golang.org/x/crypto v0.0.0-20200221231518-2aa609cf4a9d
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )

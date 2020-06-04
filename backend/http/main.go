@@ -12,6 +12,7 @@ import (
 	"github.com/ilyakaznacheev/cleanenv"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	"golang.org/x/crypto/acme/autocert"
 )
 
 func getOutputCount(cfg *config.Config) int {
@@ -57,12 +58,18 @@ func formPost(cfg *config.Config) func(c echo.Context) error {
 func serve(cfg *config.Config) {
 	e := echo.New()
 
+	e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("providedh-form-server.westeurope.azurecontainer.io")
+	// Cache certificates
+	e.AutoTLSManager.Cache = autocert.DirCache(".cache")
+	e.Use(middleware.Recover())
+	e.Use(middleware.Logger())
 	e.Use(middleware.CORS())
 	//e.Use(middleware.CORSWithConfig(middleware.CORSConfig{}))
 
 	e.POST("/form", formPost(cfg))
 
-	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", cfg.Port)))
+	//e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", cfg.Port)))
+	e.Logger.Fatal(e.StartAutoTLS(":443"))
 }
 
 func main() {
