@@ -2,7 +2,7 @@ from jupyter/scipy-notebook
 
 run echo "import os\nfrom notebook.auth import passwd" \
     >> /home/jovyan/.jupyter/jupyter_notebook_config.py
-run echo "c.NotebookApp.password = passwd(os.environ.get('USER'))" \
+run echo "c.NotebookApp.password = passwd(os.environ.get('PASSWD'))" \
     >> /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 run mkdir -p /home/jovyan/workdir/config /home/jovyan/workdir/output
