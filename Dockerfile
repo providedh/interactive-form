@@ -1,0 +1,17 @@
+from jupyter/scipy-notebook
+
+run echo "import os\nfrom notebook.auth import passwd" \
+    >> /home/jovyan/.jupyter/jupyter_notebook_config.py
+run echo "c.NotebookApp.password = passwd(os.environ.get('USER'))" \
+    >> /home/jovyan/.jupyter/jupyter_notebook_config.py
+
+run mkdir -p /home/jovyan/workdir/config
+workdir /home/jovyan/workdir
+run echo '{"port": "8000", "output_dir": "./output"}' > config/config.json
+
+run echo `pwd`
+run wget https://github.com/providedh/interactive-form/releases/download/v1.0/analysis.tar.gz
+run wget https://github.com/providedh/interactive-form/releases/download/v1.0/backend.tar.gz
+
+run tar -xf analysis.tar.gz
+run tar -xf backend.tar.gz
