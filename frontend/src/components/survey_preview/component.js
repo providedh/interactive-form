@@ -27,7 +27,7 @@ export default function Component({state}) {
         */
 	    $.ajax({
 	        type: "POST",
-	        url: "http://0.0.0.0:8000/form",
+	        url: "http://providedh-form-server.westeurope.azurecontainer.io:8000/form",
 	        data: JSON.stringify({annotations: annotationList, user, taxonomy}),
 	        dataType: "json",
 	        contentType : 'application/json',
