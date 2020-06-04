@@ -10,8 +10,8 @@ workdir /home/jovyan/workdir
 run echo '{"port": "8000", "output_dir": "./output"}' > config/config.json
 
 run echo `pwd`
-run wget https://github.com/providedh/interactive-form/releases/download/v1.0/analysis.tar.gz
-run wget https://github.com/providedh/interactive-form/releases/download/v1.0/backend.tar.gz
+run wget https://github.com/providedh/interactive-form/releases/download/v1.1/analysis.tar.gz
+run wget https://github.com/providedh/interactive-form/releases/download/v1.1/backend.tar.gz
 
 run tar -xf analysis.tar.gz
 run tar -xf backend.tar.gz
