@@ -65,7 +65,7 @@ func serve(cfg *config.Config) {
 
 	e.POST("/form", formPost(cfg))
 	//e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", cfg.Port)))
-	e.Logger.Fatal(e.StartAutoTLS(e.StartTLS(":443", "./certs/cert.pem", "./certs/key.pem")))
+	e.Logger.Fatal(e.StartTLS(":443", "./certs/cert.pem", "./certs/key.pem"))
 }
 
 func main() {
