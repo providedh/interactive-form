@@ -30,7 +30,6 @@ run setcap 'cap_net_bind_service=+ep' /home/jovyan/workdir/backend/interactive_f
 
 # ssl
 USER $NB_UID
-run mkdir -p /.well-known/pki-validation/
 run mkdir certs
 run touch certs/cert.pem
 run touch certs/key.pem
