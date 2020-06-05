@@ -29,11 +29,12 @@ run apt update && apt install libcap2-bin -y
 run setcap 'cap_net_bind_service=+ep' /home/jovyan/workdir/backend/interactive_form_server
 
 # ssl
+USER $NB_UID
 run mkdir -p /.well-known/pki-validation/
 run mkdir certs
 run touch certs/cert.pem
 run touch certs/key.pem
 
 
-USER $NB_UID
-entrypoint ["bash", "./start.sh"]
+#USER $NB_UID
+#entrypoint ["bash", "./start.sh"]
