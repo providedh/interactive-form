@@ -1,5 +1,5 @@
 dev:
-	go run http/main.go
+	go run cmd/cmd.go
 
 build: ./dist ./dist/interactive_form_server
 
@@ -8,8 +8,8 @@ build: ./dist ./dist/interactive_form_server
 
 ./dist/interactive_form_server:
 	go mod vendor
-	go build http/main.go
-	mv main dist/interactive_form_server
+	go build cmd/cmd.go
+	mv cmd dist/interactive_form_server
 
 .PHONY: dev
 .PHONY: build
