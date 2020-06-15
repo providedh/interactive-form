@@ -1,4 +1,4 @@
-dev:
+run:
 	go run cmd/cmd.go
 
 build: ./dist ./dist/interactive_form_server
