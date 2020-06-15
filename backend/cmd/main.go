@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"server/internal/http"
+
 	"github.com/urfave/cli/v2"
 )
 
@@ -25,9 +27,30 @@ func getCli() *cli.App {
 						Usage:   "bind to `PORT`.",
 						EnvVars: []string{"INTERACTIVE_FORM_PORT", "FORM_PORT", "PORT"},
 					},
+					&cli.BoolFlag{
+						Name:    "tls",
+						Value:   false,
+						Usage:   "use secure TLS connection.",
+						EnvVars: []string{"TLS"},
+					},
+					&cli.StringFlag{
+						Name:    "cert",
+						Value:   "./cert.pem",
+						Usage:   "Path to public cretificate pem file for TLS (ignored if not using tls).",
+						EnvVars: []string{"CERT_FILE"},
+					},
+					&cli.StringFlag{
+						Name:    "key",
+						Value:   "./key.pem",
+						Usage:   "Path to private key pem file for TLS (ignored if not using tls).",
+						EnvVars: []string{"KEY_FILE"},
+					},
 				},
 				Action: func(c *cli.Context) error {
 					fmt.Printf("Listen on port :%d", c.Int("port"))
+					fmt.Println("____")
+					http.Listen(c.Int("port"), c.Bool("tls"), c.String("cert"), c.String("key"))
+
 					return nil
 				},
 			},
