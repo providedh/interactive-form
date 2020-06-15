@@ -29,11 +29,22 @@ func (s azureBlob) Touch() error {
 }
 
 func (s azureBlob) Upload(content []byte) error {
+	url, err := uploadBytesToBlob(content, s.key, s.accountName, s.serviceEndpoint, s.container)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(url)
 	fmt.Println(string(content))
 	return nil
 }
 
 func AzureBlobStorage(key string, accountName string, container string) azureBlob {
+	_, errC := azblob.NewSharedKeyCredential(accountName, key)
+	if errC != nil {
+		fmt.Println("cred", errC)
+		panic("credential issues")
+	}
+
 	serviceEndpoint := fmt.Sprintf("https://%s.blob.core.windows.net/", accountName)
 	s := azureBlob{
 		key,
@@ -58,6 +69,7 @@ func uploadBytesToBlob(b []byte, key string, accountName string, endPoint string
 	u, _ := url.Parse(fmt.Sprint(endPoint, container, "/", getBlobName()))
 	credential, errC := azblob.NewSharedKeyCredential(accountName, key)
 	if errC != nil {
+		fmt.Println("here", errC)
 		return "", errC
 	}
 
@@ -66,11 +78,12 @@ func uploadBytesToBlob(b []byte, key string, accountName string, endPoint string
 	ctx := context.Background()
 	o := azblob.UploadToBlockBlobOptions{
 		BlobHTTPHeaders: azblob.BlobHTTPHeaders{
-			ContentType: "image/jpg",
+			ContentType: "application/json",
 		},
 	}
 
 	_, errU := azblob.UploadBufferToBlockBlob(ctx, b, blockBlobUrl, o)
+	fmt.Println("errU", errU)
 	return blockBlobUrl.String(), errU
 }
 
@@ -78,5 +91,5 @@ func getBlobName() string {
 	t := time.Now()
 	uuid, _ := uuid.NewV4()
 
-	return fmt.Sprintf("%s-%v.jpg", t.Format("20060102"), uuid)
+	return fmt.Sprintf("%s-%v.json", t.Format("20060102"), uuid)
 }

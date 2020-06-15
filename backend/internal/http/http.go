@@ -42,9 +42,7 @@ func formPost(s storage.Storage) func(c echo.Context) error {
 		}
 
 		json_dump, _ := json.Marshal(res)
-		//byte_dump := []byte(json_dump)
-		//s.Upload(json_dump)
-		fmt.Println(json_dump)
+		s.Upload(json_dump)
 
 		return c.NoContent(200)
 	}

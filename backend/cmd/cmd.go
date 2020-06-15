@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"server/internal/http"
@@ -73,14 +72,8 @@ func getCli() *cli.App {
 							},
 						},
 						Action: func(c *cli.Context) error {
-							fmt.Printf("Listen on port :%d\n", c.Int("port"))
-							fmt.Printf("Use tls :%d\n", c.Bool("tls"))
-							fmt.Println(c.String("key"), c.String("account"), c.String("container"))
 							var s storage.Storage
 							s = storage.AzureBlobStorage(c.String("key"), c.String("account"), c.String("container"))
-							fmt.Println(s)
-							//fmt.Println("____")
-							fmt.Println(s.Listdir())
 							http.Listen(c.Int("port"), c.Bool("tls"), c.String("cert"), c.String("key"), s)
 
 							return nil
