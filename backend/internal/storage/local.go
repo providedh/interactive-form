@@ -56,7 +56,7 @@ func (s local) Upload(content []byte) (string, error) {
 	filepath := fpath.Join(s.Dest, filename)
 
 	if err := ioutil.WriteFile(filepath, content, 0644); err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return "", err
 	} else {
 		return filename, nil

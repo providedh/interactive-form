@@ -3,6 +3,7 @@ package http
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"server/internal/response"
@@ -36,7 +37,7 @@ func formPost(s storage.Storage) func(c echo.Context) error {
 		// unmarshall response
 		res := new(response.Response)
 		if err := c.Bind(res); err != nil {
-			fmt.Println(err)
+			log.Println(err)
 			return c.NoContent(400)
 		}
 
@@ -44,9 +45,9 @@ func formPost(s storage.Storage) func(c echo.Context) error {
 		filename, err := s.Upload(json_dump)
 
 		if err != nil {
-			fmt.Println("Failed to upload:", err)
+			log.Println("Failed to upload:", err)
 		} else {
-			fmt.Println("Uploaded:", filename)
+			log.Println("Uploaded:", filename)
 		}
 
 		return c.NoContent(200)

@@ -2,7 +2,7 @@ package storage
 
 import (
 	"fmt"
-	"io/ioutil"
+	"log"
 	"net/url"
 	"os"
 	"time"
@@ -35,7 +35,7 @@ func AzureBlobStorage(Key string, AccountName string, Container string) azureBlo
 func (s azureBlob) Listdir() {
 	credential, err := getAzureCredential(s)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return
 	}
 
@@ -58,7 +58,7 @@ func (s azureBlob) RetrieveToDir(dir string) error {
 		err = downloadBlobToFile(blobItem, dir, s, credential)
 
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 		} else {
 			files++
 		}
@@ -72,16 +72,6 @@ func (s azureBlob) Upload(content []byte) (string, error) {
 	filename, err := uploadBytesToBlob(content, s)
 
 	return filename, err
-}
-
-func readFile(filePath string) ([]byte, error) {
-	dat, err := ioutil.ReadFile(filePath)
-
-	if err != nil {
-		return nil, err
-	} else {
-		return dat, nil
-	}
 }
 
 func getAzureCredential(s azureBlob) (*azblob.SharedKeyCredential, error) {
@@ -143,7 +133,7 @@ func walkContainer(s azureBlob, credential *azblob.SharedKeyCredential, f func(a
 		listBlob, err := containerURL.ListBlobsFlatSegment(ctx, marker, azblob.ListBlobsSegmentOptions{})
 
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 			continue
 		}
 
