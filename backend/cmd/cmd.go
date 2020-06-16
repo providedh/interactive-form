@@ -85,6 +85,17 @@ func getCli() *cli.App {
 							return err
 						},
 					},
+					{
+						Name:  "list",
+						Usage: "List form responses in storage.",
+						Action: func(c *cli.Context) error {
+							var s storage.Storage
+							s = storage.LocalStorage(c.String("dest"))
+							s.Listdir()
+
+							return nil
+						},
+					},
 				},
 			},
 			{
@@ -168,6 +179,17 @@ func getCli() *cli.App {
 							return nil
 						},
 					},
+					{
+						Name:  "list",
+						Usage: "List form responses in storage.",
+						Action: func(c *cli.Context) error {
+							var s storage.Storage
+							s = storage.AzureBlobStorage(c.String("key"), c.String("account"), c.String("container"))
+							s.Listdir()
+
+							return nil
+						},
+					},
 				},
 			},
 			{
@@ -235,6 +257,17 @@ func getCli() *cli.App {
 							//var s storage.Storage
 							//s = storage.GoogleCloudStorage(c.String("cred"))
 							//err := storage.RetrieveToDirectory(s, c.String("outdir"))
+
+							return nil
+						},
+					},
+					{
+						Name:  "list",
+						Usage: "List form responses in storage.",
+						Action: func(c *cli.Context) error {
+							//var s storage.Storage
+							//s = storage.AzureBlobStorage(c.String("key"), c.String("account"), c.String("container"))
+							//err := s.Listdir(c.String("dir"))
 
 							return nil
 						},
