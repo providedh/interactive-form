@@ -26,8 +26,10 @@ func (s local) Listdir() {
 }
 
 func (s local) RetrieveToDir(dir string) error {
+	var files int = 0
+
+	fmt.Println("Retrieving files...")
 	fpath.Walk(s.Dest, func(path string, info os.FileInfo, err error) error {
-		fmt.Println(path)
 		if info.IsDir() == true {
 			return nil
 		}
@@ -35,12 +37,16 @@ func (s local) RetrieveToDir(dir string) error {
 			return err
 		} else {
 			dest := fpath.Join(dir, fpath.Base(path))
-
 			err := ioutil.WriteFile(dest, content, 0644)
-			fmt.Println(dest, err)
+
+			if err == nil {
+				files++
+			}
 		}
 		return nil
 	})
+
+	fmt.Printf("Retrieved %d files.\n", files)
 
 	return nil
 }

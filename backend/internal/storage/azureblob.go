@@ -60,7 +60,6 @@ func uploadBytesToBlob(b []byte, key string, accountName string, endPoint string
 	u, _ := url.Parse(fmt.Sprint(endPoint, container, "/", blobName))
 	credential, errC := azblob.NewSharedKeyCredential(accountName, key)
 	if errC != nil {
-		fmt.Println("here", errC)
 		return "", errC
 	}
 
