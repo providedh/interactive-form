@@ -103,10 +103,10 @@ func getCli() *cli.App {
 				Usage: "Forward form responses to Azure Blob Storage.",
 				Flags: []cli.Flag{
 					&cli.StringFlag{
-						Name:    "key",
+						Name:    "pk",
 						Value:   "",
 						Usage:   "Azure storage private key.",
-						EnvVars: []string{"AZR_KEY"},
+						EnvVars: []string{"AZR_PK"},
 					},
 					&cli.StringFlag{
 						Name:    "account",
@@ -154,7 +154,7 @@ func getCli() *cli.App {
 						},
 						Action: func(c *cli.Context) error {
 							var s storage.Storage
-							s = storage.AzureBlobStorage(c.String("key"), c.String("account"), c.String("container"))
+							s = storage.AzureBlobStorage(c.String("pk"), c.String("account"), c.String("container"))
 							http.Listen(c.Int("port"), c.Bool("tls"), c.String("cert"), c.String("key"), s)
 
 							return nil
@@ -172,11 +172,11 @@ func getCli() *cli.App {
 							},
 						},
 						Action: func(c *cli.Context) error {
-							//var s storage.Storage
-							//s = storage.AzureBlobStorage(c.String("key"), c.String("account"), c.String("container"))
-							//err := storage.RetrieveToDirectory(s, c.String("outdir"))
+							var s storage.Storage
+							s = storage.AzureBlobStorage(c.String("pk"), c.String("account"), c.String("container"))
+							err := s.RetrieveToDir(c.String("dir"))
 
-							return nil
+							return err
 						},
 					},
 					{
@@ -184,7 +184,7 @@ func getCli() *cli.App {
 						Usage: "List form responses in storage.",
 						Action: func(c *cli.Context) error {
 							var s storage.Storage
-							s = storage.AzureBlobStorage(c.String("key"), c.String("account"), c.String("container"))
+							s = storage.AzureBlobStorage(c.String("pk"), c.String("account"), c.String("container"))
 							s.Listdir()
 
 							return nil
