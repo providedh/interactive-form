@@ -28,21 +28,16 @@ func (s azureBlob) Touch() error {
 	return nil
 }
 
-func (s azureBlob) Upload(content []byte) error {
-	url, err := uploadBytesToBlob(content, s.key, s.accountName, s.serviceEndpoint, s.container)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(url)
-	fmt.Println(string(content))
-	return nil
+func (s azureBlob) Upload(content []byte) (string, error) {
+	filename, err := uploadBytesToBlob(content, s.key, s.accountName, s.serviceEndpoint, s.container)
+
+	return filename, err
 }
 
 func AzureBlobStorage(key string, accountName string, container string) azureBlob {
 	_, errC := azblob.NewSharedKeyCredential(accountName, key)
 	if errC != nil {
-		fmt.Println("cred", errC)
-		panic("credential issues")
+		panic(errC)
 	}
 
 	serviceEndpoint := fmt.Sprintf("https://%s.blob.core.windows.net/", accountName)
@@ -66,7 +61,8 @@ func readFile(filePath string) ([]byte, error) {
 }
 
 func uploadBytesToBlob(b []byte, key string, accountName string, endPoint string, container string) (string, error) {
-	u, _ := url.Parse(fmt.Sprint(endPoint, container, "/", getBlobName()))
+	blobName := getBlobName()
+	u, _ := url.Parse(fmt.Sprint(endPoint, container, "/", blobName))
 	credential, errC := azblob.NewSharedKeyCredential(accountName, key)
 	if errC != nil {
 		fmt.Println("here", errC)
@@ -83,8 +79,7 @@ func uploadBytesToBlob(b []byte, key string, accountName string, endPoint string
 	}
 
 	_, errU := azblob.UploadBufferToBlockBlob(ctx, b, blockBlobUrl, o)
-	fmt.Println("errU", errU)
-	return blockBlobUrl.String(), errU
+	return blobName, errU
 }
 
 func getBlobName() string {

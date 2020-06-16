@@ -27,7 +27,6 @@ func Listen(port int, useTls bool, certPath string, keyPath string, s storage.St
 		e.Pre(middleware.HTTPSRedirect())
 		e.Logger.Fatal(e.StartTLS(fmt.Sprintf(":%d", port), certPath, keyPath))
 	} else {
-		fmt.Println(fmt.Sprintf(":%d", port))
 		e.Logger.Fatal(e.Start(fmt.Sprintf(":%d", port)))
 	}
 }
@@ -42,7 +41,13 @@ func formPost(s storage.Storage) func(c echo.Context) error {
 		}
 
 		json_dump, _ := json.Marshal(res)
-		s.Upload(json_dump)
+		filename, err := s.Upload(json_dump)
+
+		if err != nil {
+			fmt.Println("Failed to upload:", err)
+		} else {
+			fmt.Println("Uploaded:", filename)
+		}
 
 		return c.NoContent(200)
 	}

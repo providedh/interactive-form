@@ -2,7 +2,7 @@ package storage
 
 type Storage interface {
 	Connect() error
-	Upload([]byte) error
+	Upload([]byte) (string, error)
 	Touch() error
 	Listdir() []string
 }
