@@ -15,16 +15,11 @@ type azureBlob struct {
 	key, accountName, serviceEndpoint, container string
 }
 
-func (s azureBlob) Connect() error {
-	return nil
+func (s azureBlob) Listdir() {
+
 }
 
-func (s azureBlob) Listdir() []string {
-	files := []string{}
-	return files
-}
-
-func (s azureBlob) Touch() error {
+func (s azureBlob) RetrieveToDir(dir string) error {
 	return nil
 }
 
