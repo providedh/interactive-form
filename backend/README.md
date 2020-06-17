@@ -42,15 +42,18 @@ type Response struct {
 ```
 
 ### How to use it
-The code uses vendoring to get the dependencies. Run `make dev` to run the server without compiling it and
-run `make build` to build the binary, which will be available in the _dist_ folder as `interactive_form_server`.
+The code uses vendoring to get the dependencies. Run `go run cmd/cmd.go` to run the server without compiling it and
+run `go build -o <binary-name> cmd/cmd.go` to build the binary.
 
-The resulting file is the binary to be executed, which will take the configuration from a `config/config.json`
-file relative to its location.
+The resulting file is the binary to be executed, which will take the configuration either from command-line
+arguments, or via environment variables.
 
 ### Configuring the execution
-The server allows configuring two different settings: the 1)port to bound and the 2)output directory. This
-may be configured through the [configuration JSON](config/config.json) and environment variables.
+This program allows listening and forwarding form responses,listing them, and retrieving the responses. Therefore,
+parameters can be provided for the desired storage and action.
 
-1. Change the already present default configuration in the [configuration JSON](config/config.json).
-2. Overwrite the settings using the `SERVER_PORT` and `FORM_OUTPUT_DIR` environment variables.
+The server allows configuring two different settings: the 1)port to bound and 2)whether to use TLS for secure
+data transfer; the later requires setting too the certificate and private key pem files locations.
+
+The tool itself has a help utility (`binary [h, help, -h, --help]`) that provides information for the available
+parameters for each of the options.
