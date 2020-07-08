@@ -1,0 +1,15 @@
+export default [
+  "He says that Captain Brian o Le and Captain Hugh Byrne were designed for",
+  "surprising the Castle of Dublin, and that if he this examinant were one for surprising the Castle of",
+  "Dublin those 2 Captains were M principals therein, He says the place",
+  "of meeting was to be at the examinant's lodging, He says that 20 prime men out of every County in Ireland was",
+  "were to be at Dublin this last night concerning this matter, and that they",
+  "were to consult of it this morning, at the examinant's lodging, There",
+  "Their weapons were to be swords and skenes, and that the Captains",
+  "that O were raising men in the Irish contreyes",
+  "were they, that they should send men thether, to second the",
+  "business, he says when they had Dublin they made sure of the rest and",
+  "expected to be furnished with more Arms at P.",
+  "Dublin, He said I am now in your hands, use me as you will I am sure I",
+  "shalbee it wilbee shortly revenged",
+].join(' ')

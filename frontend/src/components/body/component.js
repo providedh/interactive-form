@@ -15,69 +15,62 @@ import RemapUncertaintyPage from 'app_components/pages/remap_uncertainty'
 
 
 export default function Component(props) {
+    const icons = [
+        'home-1',
+        'torso',
+        'circle',
+        'circle', 'circle', 'circle',
+        'circle', 'circle', 'circle',
+        'circle', 'circle', 'circle',
+        'circle', 'circle', 'circle',
+        'circle', 'circle', 'circle',
+        'circle', 'circle', 'circle',
+        'circle', 'circle', 'circle',
+        'mail']
+
+    const useCases = [
+        'dep_809015r004',
+        'dep_812227v188',
+        'dep_816090r036',
+        'dep_835136r184',
+        'dep_812144r141',
+        'dep_815046v103',
+        'dep_833107r083',
+    ].map((name, index) => [
+		<AnnotatingUncertaintyPage
+            key={index + 'a'}
+			useCase={''+index}
+            title={name}
+            description='An excerpt from a historical text.'
+            useCaseType='raw'
+            useCaseSource={name} />,
+		<CategorizingUncertaintyPage
+            key={index + 'c'}
+			useCase={''+index}
+            title={name}
+            description='An excerpt from a historical text.'
+            useCaseType='raw'
+            useCaseSource={name} />,
+        <RemapUncertaintyPage
+            key={index + 'r'}
+			useCase={''+index}
+            title={name}
+            description='An excerpt from a historical text.'
+            useCaseType='raw'
+            useCaseSource={name} />
+    ])
 
     return(
     	<div className={"container-xl "+styles.body}>
     		<Title />
-    		<Navigation icons={['home-1', 'torso', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'circle', 'mail']}>
-    			<LandingPage />
-    			<UserPage />
-                <SamplePage />
-    			<AnnotatingUncertaintyPage
-					useCase='1'
-                    title='First use case: German recipes'
-                    description='An excerpt from a historical Greman food recipe.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-				<CategorizingUncertaintyPage
-					useCase='1'
-                    title='First use case: German recipes'
-                    description='An excerpt from a historical Greman food recipe.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-                <RemapUncertaintyPage
-					useCase='1'
-                    title='First use case: German recipes'
-                    description='An excerpt from a historical Greman food recipe.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-                <AnnotatingUncertaintyPage
-					useCase='2'
-                    title='Second use case: A war registry'
-                    description='A registry from the Second World War.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-				<CategorizingUncertaintyPage
-					useCase='2'
-                    title='Second use case: A war registry'
-                    description='A registry from the Second World War.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-                <RemapUncertaintyPage
-					useCase='2'
-                    title='Second use case: A war registry'
-                    description='A registry from the Second World War.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-                <AnnotatingUncertaintyPage
-					useCase='3'
-                    title='Third use case: Newspaper'
-                    description='An article from a modern newspaper.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-				<CategorizingUncertaintyPage
-					useCase='3'
-                    title='Third use case: Newspaper'
-                    description='An article from a modern newspaper.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-                <RemapUncertaintyPage
-					useCase='3'
-                    title='Third use case: Newspaper'
-                    description='An article from a modern newspaper.'
-                    useCaseType='raw'
-                    useCaseSource={'raw_1'} />
-    			<SendPage />
+    		<Navigation icons={icons}>
+            {[
+    			<LandingPage key={'l'}/>,
+    			<UserPage  key={'u'}/>,
+                <SamplePage  key={'s'}/>,
+                ...useCases.reduce((ac, dc) => [...ac, ...dc], []),
+			     <SendPage  key={'s'}/>
+            ]}
     		</Navigation>
     	</div>
     	);
